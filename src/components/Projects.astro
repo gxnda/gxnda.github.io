@@ -1,0 +1,52 @@
+---
+const projects = [
+  {
+    title: "In-Memory Datastore & Performance Analysis (Redis Protocol)",
+    tech: ["Rust", "Tokio", "Networking", "Performance"],
+    points: [
+      "Protocol & Systems design: Engineered a networked, asynchronous key-value store compliant with the Redis Serialisation Protocol (RESP).",
+      "Performant: Achieved an average of ~295k requests per second, outperforming a stock Redis server (v8.2.1) running under identical conditions by approx. 8%.",
+      "Persistence: Implemented configurable persistence layers with append-only file (AOF) and snapshot (RDB) logging.",
+      "Memory efficient: Optimized memory efficiency using zero-copy deserialization and the 'Bytes' crate to minimize allocations."
+    ],
+    link: "https://github.com/gxnda/rudis"
+  },
+  {
+    title: "Distributed P2P File Sharing System (Kademlia Protocol)",
+    tech: ["Python", "Asyncio", "Distributed Systems", "P2P"],
+    points: [
+      "Designed and implemented a distributed hash table (DHT) backend implementing the Kademlia protocol, including XOR-based routing, k-buckets, and TCP RPC for node discovery and key-value propagation.",
+      "Efficient: Lookups find a node in O(Log(n)) time across the decentralised network (of size n).",
+      "Problems faced: Switched I/O bound operations from threading to async, leading to a 65% performance boost in bootstrapping."
+    ],
+    link: "https://github.com/gxnda/kademlia"
+  },
+  {
+    title: "Flatmate Matching Web-app",
+    tech: ["Next.js", "Flask", "MySQL", "Redis", "Team Project"],
+    points: [
+      "Backend Lead Engineer on an 8-person team in developing a full-stack social web app with real-time matching and messaging.",
+      "Architected backend: Designed RESTful APIs with Flask/SQLAlchemy; modeled relational MySQL schemas for user profiles, preferences, and matches.",
+      "Implemented core features: Engineered matching algorithm and real-time chat using Redis Pub/Sub.",
+      "Integrated auth: Secured login via integrating the University of Manchester student login system and session management.",
+      "Optimized collaboration: Used Git feature branching, Gantt Charts and Agile Sprints to deliver the MVP in 7 weeks."
+    ]
+  }
+];
+---
+
+<section>
+  <h3 class="section-title"><i class="fas fa-code"></i> Projects</h3>
+  {projects.map(project => (
+    <div class="project">
+      <h4 class="project-title">{project.title}</h4>
+      <div class="project-tech">
+        {project.tech.map(tech => <span class="tag">{tech}</span>)}
+      </div>
+      <ul>
+        {project.points.map(point => <li>{point}</li>)}
+      </ul>
+      {project.link && <a href={project.link} class="project-link">View Project on GitHub</a>}
+    </div>
+  ))}
+</section>
