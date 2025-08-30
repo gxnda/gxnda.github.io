@@ -36,17 +36,20 @@ const projects = [
 ---
 
 <section>
-  <h3 class="section-title"><i class="fas fa-code"></i> Projects</h3>
+    <h3 class="section-title"><i class="fas fa-code"></i> Projects</h3>
   {projects.map(project => (
-    <div class="project">
-      <h4 class="project-title">{project.title}</h4>
-      <div class="project-tech">
-        {project.tech.map(tech => <span class="tag">{tech}</span>)}
-      </div>
-      <ul>
-        {project.points.map(point => <li>{point}</li>)}
-      </ul>
-      {project.link && <a href={project.link} class="project-link">View Project on GitHub</a>}
-    </div>
+          <div class="project">
+              <h4 class="project-title">{project.title}</h4>
+              <div class="project-tech">
+                {project.tech.map(tech => <span class="tag">{tech}</span>)}
+              </div>
+              <ul>
+                {project.points.map(point =>
+                        <li>{point}</li>)}
+              </ul>
+            {project.link &&
+                    <a href={project.link} class="project-link">View Project on
+                        GitHub</a>}
+          </div>
   ))}
 </section>

@@ -16,14 +16,19 @@ const education = [
 ---
 
 <section>
-  <h3 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h3>
+    <h3 class="section-title"><i class="fas fa-graduation-cap"></i> Education
+    </h3>
   {education.map(edu => (
-    <div class="education-item">
-      <h4 class="education-title">{edu.institution}</h4>
-      {edu.degree && <div class="education-details">{edu.degree}</div>}
-      <div class="education-details">{edu.period}</div>
-      {edu.details && <div class="education-details highlight">{edu.details}</div>}
-      {edu.modules && <div class="education-modules"><strong>Relevant Modules:</strong> {edu.modules}</div>}
-    </div>
+          <div class="education-item">
+              <h4 class="education-title">{edu.institution}</h4>
+            {edu.degree &&
+                    <div class="education-details">{edu.degree}</div>}
+              <div class="education-details">{edu.period}</div>
+            {edu.details &&
+                    <div class="education-details highlight">{edu.details}</div>}
+            {edu.modules &&
+                    <div class="education-modules"><strong>Relevant
+                        Modules:</strong> {edu.modules}</div>}
+          </div>
   ))}
 </section>
